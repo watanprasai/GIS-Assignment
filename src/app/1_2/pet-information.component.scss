@@ -1,0 +1,53 @@
+.top, .bottom , .title{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+    margin-left: 10px;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.title {
+    margin-bottom: 0;
+    margin-left: 10px;
+}
+
+.header {
+    padding-left: 10px;
+    color: rgb(25, 98, 162);
+    width: 100%;
+    background-color: rgb(99, 211, 249);
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.text {
+    flex: 1;
+}
+
+img {
+    margin-top: 20px;
+    width: 250px;
+    height: 250px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.hcl {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+}
+
+table, form {
+    margin-left: 10px;
+}

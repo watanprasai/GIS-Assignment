@@ -1,0 +1,30 @@
+.box-of-comment-page {
+    margin-left: 20px;
+}
+li {
+    list-style-type: none;
+}
+
+.new-comment-box {
+    border: 1px solid black;
+    width: 15%;
+}
+
+.button {
+    color: rgb(0, 60, 255);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.username {
+    color: gray;
+    font-weight: bold;
+}
+
+.line-container {
+    display: flex;
+}
+
+form {
+    margin-left: 10px;
+}

@@ -1,0 +1,5 @@
+<div class="card">
+    <p-messages [(value)]="messages" [enableService]="false" [closable]="true"></p-messages>
+</div>
+<div #mapPanel style="height: 100%; width:100%;"></div>
+<locator (locate)="handleLocate($event)"></locator>

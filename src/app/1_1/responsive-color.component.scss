@@ -1,0 +1,26 @@
+.top, .bottom {
+  display: flex;
+  height: 50vh;
+}
+
+.right-top, .left-top,
+.right-bottom, .left-bottom {
+  flex: 1;
+  height: 100%;
+}
+
+.right-top {
+  background-color: #FF0000;
+}
+
+.left-top {
+  background-color: #008800;
+}
+
+.right-bottom {
+  background-color: #0000FF;
+}
+
+.left-bottom {
+  background-color: #000000;
+}

@@ -1,0 +1,27 @@
+<div class="box-of-comment-page">
+    <h1 class="title">Comment Simulation</h1>
+    <div class="new-comment-box">
+        <h1>New Comment:</h1>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" name="name" value="" [(ngModel)]="name"><br>
+            <label for="comment">Comment:</label><br>
+            <textarea name="comment" rows="3" [(ngModel)]="comment"></textarea><br>
+            <input type="submit" value="Submit" *ngIf="!editState" (click)="submit()" />
+            <input type="submit" value="Edit" *ngIf="editState" (click)="update()" />
+        </form>     
+    </div>
+    <div class="comment-box">
+        <h1>Comment</h1>
+        <ul>
+            <li *ngFor="let comment of comments;index as i">
+                <div class="line-container">
+                    <div class="username">{{ comment.name }}</div> &nbsp; {{ comment.timestamp }} <br>
+                </div>
+                {{ comment.comment }} <br>
+                <a (click)="edit(i)" class="button">Edit</a> &nbsp;
+                <a (click)="delete(i)" class="button">Delete</a>
+            </li>
+        </ul>
+    </div>
+</div>

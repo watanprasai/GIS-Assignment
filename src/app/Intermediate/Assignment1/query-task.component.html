@@ -1,0 +1,21 @@
+<div class="card">
+    <p-messages [(value)]="messages" [enableService]="false" [closable]="true"></p-messages>
+</div>
+<div class="map-containner">
+    <div #mapPanel id="mapPanel" style="height:98%; width:85%; margin:10px; padding:15px; background-color:white; border-radius:10px;">
+    </div>  
+    <div class="table" style="width: 50vw;">
+        <table>
+            <tr>
+                <th>Subregion</th>
+                <th>State Name (Full)</th>
+                <th>State Name (Abbr.)</th>
+            </tr>
+            <tr *ngFor="let i of this.stateInfo" (click)="onClickRow(i)" [ngClass]="{'orange': i.clicked, 'white': !i.clicked}">
+                <td>{{i.attributes.sub_region}}</td>
+                <td>{{i.attributes.state_name}}</td>
+                <td>{{i.attributes.state_abbr}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+locator {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+.card {
+    position: fixed;
+    top: 30px;
+    z-index: 99;
+    right: 50%;
+    transform: translateX(50%);
+}

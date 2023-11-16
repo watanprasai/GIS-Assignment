@@ -1,0 +1,9 @@
+<div class="locator-container">
+    <h1>Locator</h1>
+    <p>Latitude</p>
+    <p-inputNumber [(ngModel)]="customPoint.latitude" inputId="locale-user" [maxFractionDigits]="8"></p-inputNumber>
+    <p>Longitude</p>
+    <p-inputNumber [(ngModel)]="customPoint.longitude" inputId="locale-user" [maxFractionDigits]="8"></p-inputNumber><br><br>
+    <p-button label="Locate" (onClick)="onLocate()"></p-button>
+</div>
+
