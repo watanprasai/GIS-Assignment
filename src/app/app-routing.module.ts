@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ResponsiveColorComponent } from './1_1/responsive-color.component';
-import { PetInformationComponent } from './1_2/pet-information.component';
-import { CommentSimulationComponent } from './1_3/comment-simulation.component';
-import { LocatorComponent } from './2_1/locator.component';
-import { MapComponent } from './3_1/map.component';
+import { ResponsiveColorComponent } from './Beginner/1_1/responsive-color.component';
+import { PetInformationComponent } from './Beginner/1_2/pet-information.component';
+import { CommentSimulationComponent } from './Beginner/1_3/comment-simulation.component';
+import { LocatorComponent } from './Beginner/2_1/locator.component';
+import { MapComponent } from './Beginner/3_1/map.component';
 import { FirstComponent } from './index/first.component';
-import { HeadLocatorComponent } from './2/parent-locator.component';
-import { MapAssign2Component } from './4_1/map-assignment2.component';
+import { HeadLocatorComponent } from './Beginner/2/parent-locator.component';
+import { MapAssign2Component } from './Beginner/4_1/map-assignment2.component';
 import { QueryTaskComponent } from './Intermediate/Assignment1/query-task.component';
 import { ClosestFacilityComponent } from './Intermediate/Assignment2/closest-facility.component';
 

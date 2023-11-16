@@ -4,7 +4,7 @@ import MapView from '@arcgis/core/views/MapView';
 import Point from '@arcgis/core/geometry/Point';
 import SimpleMarkerSymbol from '@arcgis/core/symbols/SimpleMarkerSymbol';
 import Graphic from '@arcgis/core/Graphic';
-import { CustomPoint } from '../../2_1/custom-point';
+import { CustomPoint } from '../../Beginner/2_1/custom-point';
 import MapImageLayer from "@arcgis/core/layers/MapImageLayer";
 import { Message } from 'primeng/api';
 import FeatureLayer from "@arcgis/core/layers/FeatureLayer.js";
