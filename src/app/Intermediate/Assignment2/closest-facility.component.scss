@@ -17,3 +17,67 @@ locator {
     right: 50%;
     transform: translateX(50%);
 }   
+
+.table {
+    overflow: auto;
+    margin: 10px;
+    padding: 15px;
+    background-color: white;
+    border-radius:10px;
+    width: 50%;
+}
+
+table {
+    width: 100%;
+    border-spacing: 10px;
+    margin-top: 40px;
+}
+
+td {
+    height: 40px;
+    background-color: orange;
+    padding-left: 15px;
+    border-radius: 10px;
+}
+
+.highlight {
+    background-color: rgb(201, 132, 4);
+    transition: all 0.3s;
+}
+
+.highlight:active {
+    background-color: rgb(159, 105, 4)
+}
+
+.normal {
+    background-color: orange;
+    transition: all 0.3s;
+}
+
+.normal:hover {
+    background-color: rgb(201, 132, 4)
+}
+
+.normal:active {
+    background-color: rgb(159, 105, 4)
+}
+
+.close {
+    position: absolute;
+    right: 50px;
+}
+
+.close button {
+    border: none;
+    font-size: 20px;
+    background-color: white;
+    transition: all 0.5s;
+}
+
+.close button:hover {
+    transform: scale(1.25);
+}
+
+.close button:active {
+    transform: scale(0.8);
+}

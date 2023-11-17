@@ -90,7 +90,6 @@ export class MapAssign2Component implements OnInit{
                   feature.attributes.layerName = layerName;
                   if (layerName === "states") {
                     feature.popupTemplate = {
-                      // autocasts as new PopupTemplate()
                       title: "{STATE_NAME}",
                       content:
                         "<b>Population (2007):</b> {POP2007}" +
