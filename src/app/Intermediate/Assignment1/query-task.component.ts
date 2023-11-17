@@ -9,6 +9,7 @@ import MapImageLayer from "@arcgis/core/layers/MapImageLayer";
 import { Message } from 'primeng/api';
 import FeatureLayer from "@arcgis/core/layers/FeatureLayer.js";
 import Polygon from "@arcgis/core/geometry/Polygon.js";
+import SimpleFillSymbol from "@arcgis/core/symbols/SimpleFillSymbol.js";
 
 @Component({
     selector:'query-task',
@@ -82,12 +83,12 @@ export class QueryTaskComponent implements OnInit{
         });
         data.clicked = true;
         this.mapView?.graphics.remove(this.stateOutline);
+        const geoSym:SimpleFillSymbol = new SimpleFillSymbol({
+          color: [255, 165, 0, 0.5]
+        })
         this.stateOutline = new Graphic({
             geometry: data.geometry,
-            symbol: {
-                type: 'simple-fill',
-                color: [255, 165, 0, 0.5],
-            } as __esri.SimpleFillSymbolProperties
+            symbol: geoSym
         });
         this.mapView?.graphics.add(this.stateOutline);
         const polygon = new Polygon({

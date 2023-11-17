@@ -9,6 +9,7 @@ import MapImageLayer from "@arcgis/core/layers/MapImageLayer";
 import IdentifyParameters from "@arcgis/core/rest/support/IdentifyParameters.js";
 import * as identify from "@arcgis/core/rest/identify.js";
 import { Message } from 'primeng/api';
+import SimpleFillSymbol from "@arcgis/core/symbols/SimpleFillSymbol.js";
 
 @Component({
     selector:'map-assignmnet2',
@@ -24,7 +25,7 @@ export class MapAssign2Component implements OnInit{
     point: Point | null = null;
     marker: SimpleMarkerSymbol | null = null;
     pointGraphic: Graphic | null = null;
-    customPoint :CustomPoint = new CustomPoint
+    customPoint :CustomPoint = new CustomPoint;
     stateOutline!: Graphic;
     ngOnInit() {
       const layer = new MapImageLayer({
@@ -107,13 +108,12 @@ export class MapAssign2Component implements OnInit{
                 })
                 this.mapView?.graphics.remove(this.stateOutline);
                 const stateGeometry = response[0].geometry;
+                const geoSym: SimpleFillSymbol = new SimpleFillSymbol({
+                  color: [255, 165, 0, 0.5]
+                });
                 this.stateOutline = new Graphic({
                     geometry: stateGeometry,
-                    symbol: 
-                    {
-                        type: 'simple-fill',
-                        color: [255, 165, 0, 0.5]
-                    } as __esri.SimpleFillSymbolProperties 
+                    symbol: geoSym
                 });
                 this.mapView?.graphics.add(this.stateOutline);
                 if (mapPanel) {
