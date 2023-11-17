@@ -1,0 +1,20 @@
+<div class="map-containner" id="map-containner">
+    <div #mapPanel id="mapPanel" style="height:98%; width:100%; margin:10px; padding:15px; background-color:white; border-radius:10px;">
+    </div>  
+    <div class="right-panel" style="width: 50vw;" >
+        <div class="button-container">
+            <button class="route-button" (click)="startRoute()" *ngIf="this.pointTemp.length > 1">Start Route</button>
+            <button class="clear-button" (click)="clear()">Clear All</button>
+        </div>
+        <!-- <ul *ngIf="this.directionTemp.length > 1">
+                <li type="1" *ngFor="let i of this.directionTemp" (click)="goTo(i)" [ngClass]="{'highlight':i.clicked,'normal':!i.clicked}">
+                    {{i.attributes.text}}
+                </li>
+        </ul> -->
+        <div>
+            <div *ngFor="let i of this.directionTemp,index as index" (click)="goTo(i)" [ngClass]="{'highlight':i.clicked,'normal':!i.clicked}">
+                {{index+1}}. &nbsp; {{i.attributes.text}}
+            </div>
+        </div>
+    </div>
+</div>

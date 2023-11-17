@@ -10,6 +10,7 @@ import { HeadLocatorComponent } from './Beginner/2/parent-locator.component';
 import { MapAssign2Component } from './Beginner/4_1/map-assignment2.component';
 import { QueryTaskComponent } from './Intermediate/Assignment1/query-task.component';
 import { ClosestFacilityComponent } from './Intermediate/Assignment2/closest-facility.component';
+import { RouteMapComponent } from './Intermediate/Assignment4/route-map.component';
 
 const routes: Routes = [
   { path:'' , component: FirstComponent},
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path:'beginner/3-1' , component: MapComponent},
   { path:'beginner/4-1' , component: MapAssign2Component},
   { path:'intermediate/assignment1', component: QueryTaskComponent},
-  { path:'intermediate/assignment2', component: ClosestFacilityComponent}
+  { path:'intermediate/assignment2', component: ClosestFacilityComponent},
+  { path:'intermediate/assignment4', component: RouteMapComponent}
 ];
 
 @NgModule({

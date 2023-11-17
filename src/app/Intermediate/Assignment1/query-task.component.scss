@@ -38,6 +38,18 @@ table th{
 tr {
     display: grid;
     grid-template-columns: 170px 237px 237px;
+    transition: all 0.3s;
+}
+
+tr:hover {
+    background-color: rgb(233, 151, 0);
+}
+tr:active{
+    background-color: rgb(198, 130, 3);
+}
+
+td {
+    padding-left: 10px;
 }
 
 th, td {

@@ -198,40 +198,4 @@ export class ClosestFacilityComponent implements OnInit{
       })
       this.mapView?.graphics.add(this.drawPath);
     }
-
-    showMessage(detail: string): void {
-        this.messages = [{ severity: 'warn', summary: 'เกิดข้อผิดพลาด', detail }];
-        setTimeout(() => this.messages = [], 5000);
-    }
-
-    handleLocate(event: CustomPoint) {
-      if (event.longitude && this.mapView && event.latitude) {
-        if (event.longitude <= -180 || event.longitude >= 180) {
-          this.showMessage('Longitude ไม่ควรเกิน -180 และ 180 องศา');
-          return
-        }
-        if (event.latitude <= -90 || event.latitude >= 90) {
-          this.showMessage('Latitude ไม่ควรเกิน -90 และ 90 องศา');
-          return
-        }
-        this.mapView?.graphics.removeAll()
-        const newCenter = new Point({
-            longitude: event.longitude,
-            latitude: event.latitude,
-        });
-        this.marker = new SimpleMarkerSymbol({
-            color: [226, 119, 40],
-            outline: {
-                color: [255, 255, 255],
-                width: 2,
-            },
-        });
-        this.pointGraphic = new Graphic({
-            geometry: newCenter,
-            symbol: this.marker,
-        });
-        this.mapView?.graphics.add(this.pointGraphic);
-        this.mapView?.goTo(newCenter);
-        }
-    }
 }

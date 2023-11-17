@@ -1,0 +1,81 @@
+locator {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+.map-containner {
+    height: 100%;
+    display: flex;
+    background-color: rgb(235, 235, 235);
+}
+
+.card {
+    position: fixed;
+    top: 30px;
+    z-index: 99;
+    right: 50%;
+    transform: translateX(50%);
+}   
+
+.right-panel {
+    overflow: auto;
+    margin: 10px;
+    padding: 15px;
+    background-color: white;
+    border-radius:10px;
+    width: 50%;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.route-button {
+    font-size: 18px;
+    padding: 15px;
+    color: white;
+    border: none;
+    background-color: rgb(75, 75, 251);
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+.route-button:hover {
+    background-color: rgb(43, 43, 249);
+}
+.route-button:active {
+    background-color: rgb(17, 17, 246);
+}
+
+.clear-button {
+    font-size: 18px;
+    padding: 15px;
+    color: white;
+    border: none;
+    background-color: red;
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+.clear-button:hover {
+    background-color: rgb(206, 0, 0);
+}
+.clear-button:active {
+    background-color: rgb(192, 0, 0);
+}
+
+.highlight {
+    background-color: lightblue;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    border-radius: 10px;
+    transition: all 0.6s;
+}
+
+.normal {
+    background-color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
