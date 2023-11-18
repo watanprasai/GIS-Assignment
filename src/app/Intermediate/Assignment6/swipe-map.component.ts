@@ -2,22 +2,22 @@ import { Component, ElementRef, OnInit, ViewChild , Output, EventEmitter} from '
 import Map from '@arcgis/core/Map';
 import MapView from '@arcgis/core/views/MapView';
 import PictureMarkerSymbol from "@arcgis/core/symbols/PictureMarkerSymbol.js";
-import LayerList from "@arcgis/core/widgets/LayerList.js";
 import MapImageLayer from "@arcgis/core/layers/MapImageLayer";
 import TileLayer from "@arcgis/core/layers/TileLayer.js";
+import Swipe from "@arcgis/core/widgets/Swipe.js";
 
 @Component({
-    selector: 'layer-list',
-    templateUrl: './layer-list.component.html',
-    styleUrls: ['./layer-list.component.scss']
+    selector: 'swipe-map',
+    templateUrl: './swipe-map.component.html',
+    styleUrls: ['./swipe-map.component.scss']
 })
-export class LayerListComponent implements OnInit{
+export class SwipeMapComponent implements OnInit{
     @ViewChild('mapPanel', { static: true }) mapPanel!: ElementRef;
     map: Map | null = null;
     mapView: MapView | null = null;
     pictureMarker!: PictureMarkerSymbol;
     world_ocean_base_layer = new TileLayer({url:'https://services.arcgisonline.com/arcgis/rest/services/Ocean/World_Ocean_Base/MapServer'});
-    cencus_layer = new MapImageLayer({url: 'https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer'})
+    street_layer = new TileLayer({url: 'https://services.arcgisonline.com/arcgis/rest/services/World_Street_Map/MapServer'})
     ngOnInit() {;
 
         this.map = new Map({
@@ -31,14 +31,17 @@ export class LayerListComponent implements OnInit{
             zoom: 15,
         });
 
-        const layerList = new LayerList({
-            view: this.mapView
+        const mapSwipe = new Swipe({
+            view: this.mapView,
+            leadingLayers: [this.world_ocean_base_layer],
+            trailingLayers: [this.street_layer],
+            direction: "horizontal",
+            position: 50
         })
 
-        this.mapView.ui.add(layerList,{
-            position: "top-right"
-        })
         this.map.add(this.world_ocean_base_layer)
-        this.map.add(this.cencus_layer)
+        this.map.add(this.street_layer)
+        this.mapView.ui.add(mapSwipe)
+        
     }
 }

@@ -21,6 +21,7 @@ import { MessagesModule } from 'primeng/messages';
 import { ClosestFacilityComponent } from './Intermediate/Assignment2/closest-facility.component';
 import { RouteMapComponent } from './Intermediate/Assignment4/route-map.component';
 import { LayerListComponent } from './Intermediate/Assignment5/layer-list.component';
+import { SwipeMapComponent } from './Intermediate/Assignment6/swipe-map.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { LayerListComponent } from './Intermediate/Assignment5/layer-list.compon
     QueryTaskComponent,
     ClosestFacilityComponent,
     RouteMapComponent,
-    LayerListComponent
+    LayerListComponent,
+    SwipeMapComponent
   ],
   imports: [
     BrowserModule,

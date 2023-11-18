@@ -12,6 +12,7 @@ import { QueryTaskComponent } from './Intermediate/Assignment1/query-task.compon
 import { ClosestFacilityComponent } from './Intermediate/Assignment2/closest-facility.component';
 import { RouteMapComponent } from './Intermediate/Assignment4/route-map.component';
 import { LayerListComponent } from './Intermediate/Assignment5/layer-list.component';
+import { SwipeMapComponent } from './Intermediate/Assignment6/swipe-map.component';
 
 const routes: Routes = [
   { path:'' , component: FirstComponent},
@@ -25,7 +26,8 @@ const routes: Routes = [
   { path:'intermediate/assignment1', component: QueryTaskComponent},
   { path:'intermediate/assignment2', component: ClosestFacilityComponent},
   { path:'intermediate/assignment4', component: RouteMapComponent},
-  { path:'intermediate/assignment5', component: LayerListComponent}
+  { path:'intermediate/assignment5', component: LayerListComponent},
+  { path:'intermediate/assignment6', component: SwipeMapComponent}
 ];
 
 @NgModule({
