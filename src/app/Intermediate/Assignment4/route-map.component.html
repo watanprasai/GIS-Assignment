@@ -6,11 +6,6 @@
             <button class="route-button" (click)="startRoute()" *ngIf="this.pointTemp.length > 1">Start Route</button>
             <button class="clear-button" (click)="clear()">Clear All</button>
         </div>
-        <!-- <ul *ngIf="this.directionTemp.length > 1">
-                <li type="1" *ngFor="let i of this.directionTemp" (click)="goTo(i)" [ngClass]="{'highlight':i.clicked,'normal':!i.clicked}">
-                    {{i.attributes.text}}
-                </li>
-        </ul> -->
         <div>
             <div *ngFor="let i of this.directionTemp,index as index" (click)="goTo(i)" [ngClass]="{'highlight':i.clicked,'normal':!i.clicked}">
                 {{index+1}}. &nbsp; {{i.attributes.text}}

@@ -2,7 +2,6 @@ import { Component, ElementRef, OnInit, ViewChild , Output, EventEmitter} from '
 import Map from '@arcgis/core/Map';
 import MapView from '@arcgis/core/views/MapView';
 import Point from '@arcgis/core/geometry/Point';
-import SimpleMarkerSymbol from '@arcgis/core/symbols/SimpleMarkerSymbol';
 import Graphic from '@arcgis/core/Graphic';
 import { CustomPoint } from '../../Beginner/2_1/custom-point';
 import FeatureSet from "@arcgis/core/rest/support/FeatureSet.js";
@@ -17,7 +16,7 @@ import PictureMarkerSymbol from "@arcgis/core/symbols/PictureMarkerSymbol.js";
     templateUrl: './route-map.component.html',
     styleUrls: ['./route-map.component.scss']
 })
-export class RouteMapComponent{
+export class RouteMapComponent implements OnInit{
     @ViewChild('mapPanel', { static: true }) mapPanel!: ElementRef;
     @Output() coordinate:EventEmitter<CustomPoint> = new EventEmitter<CustomPoint>()
     map: Map | null = null;
