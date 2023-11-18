@@ -20,6 +20,7 @@ import { QueryTaskComponent } from './Intermediate/Assignment1/query-task.compon
 import { MessagesModule } from 'primeng/messages';
 import { ClosestFacilityComponent } from './Intermediate/Assignment2/closest-facility.component';
 import { RouteMapComponent } from './Intermediate/Assignment4/route-map.component';
+import { LayerListComponent } from './Intermediate/Assignment5/layer-list.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { RouteMapComponent } from './Intermediate/Assignment4/route-map.componen
     MapAssign2Component,
     QueryTaskComponent,
     ClosestFacilityComponent,
-    RouteMapComponent
+    RouteMapComponent,
+    LayerListComponent
   ],
   imports: [
     BrowserModule,

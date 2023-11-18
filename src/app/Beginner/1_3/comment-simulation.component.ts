@@ -12,6 +12,9 @@ export class CommentSimulationComponent {
     editState: boolean = false
     editIndex: number = 0
     submit() {
+        if (this.name=='' || this.comment == '') {
+            return
+        }
         this.comments.push({ name: this.name, comment: this.comment ,timestamp: this.dateFormat()});
         this.name = '';
         this.comment = '';
@@ -20,6 +23,8 @@ export class CommentSimulationComponent {
     update() {
         this.comments[this.editIndex] =({ name: this.name, comment: this.comment ,timestamp: this.dateFormat()});
         this.editState = false;
+        this.name= '';
+        this.comment = '';
     }
 
     edit(index:number) {

@@ -5,20 +5,12 @@ import Point from '@arcgis/core/geometry/Point';
 import SimpleMarkerSymbol from '@arcgis/core/symbols/SimpleMarkerSymbol';
 import Graphic from '@arcgis/core/Graphic';
 import { CustomPoint } from '../../Beginner/2_1/custom-point';
-import MapImageLayer from "@arcgis/core/layers/MapImageLayer";
-import { Message } from 'primeng/api';
-import FeatureLayer from "@arcgis/core/layers/FeatureLayer.js";
-import Polygon from "@arcgis/core/geometry/Polygon.js";
-import * as closestFacility from '@arcgis/core/rest/closestFacility';
-import ClosestFacilityParameters from '@arcgis/core/rest/support/ClosestFacilityParameters';
 import FeatureSet from "@arcgis/core/rest/support/FeatureSet.js";
-import * as geometryEngine from "@arcgis/core/geometry/geometryEngine.js";
-import SimpleFillSymbol from '@arcgis/core/symbols/SimpleFillSymbol';
-import SpatialReference from "@arcgis/core/geometry/SpatialReference.js";
 import Polyline from "@arcgis/core/geometry/Polyline.js";
 import * as route from "@arcgis/core/rest/route";
 import RouteParameters from "@arcgis/core/rest/support/RouteParameters.js";
 import SimpleLineSymbol from "@arcgis/core/symbols/SimpleLineSymbol.js";
+import PictureMarkerSymbol from "@arcgis/core/symbols/PictureMarkerSymbol.js";
 
 @Component({
     selector:'map-route-service',
@@ -31,11 +23,10 @@ export class RouteMapComponent{
     map: Map | null = null;
     mapView: MapView | null = null;
     point: Point | null = null;
-    marker!: SimpleMarkerSymbol
-    customPoint :CustomPoint = new CustomPoint
+    customPoint :CustomPoint = new CustomPoint;
     pointTemp: Graphic[] = [];
     directionTemp:any[] = [];
-    // drawPath:Graphic[] = [];
+    pictureMarker!: PictureMarkerSymbol;
     ngOnInit() {
       this.map = new Map({
         basemap: 'topo-vector',
@@ -55,25 +46,22 @@ export class RouteMapComponent{
         });
         
         if (this.pointTemp.length == 0) {
-            this.marker = new SimpleMarkerSymbol({
-                color: [226, 119, 40],
-                outline: {
-                    color: [0, 0, 0],
-                    width: 2,
-                },
+            this.pictureMarker = new PictureMarkerSymbol({
+                url: "../../../assets/orange-pin.svg",
+                width: "30px",
+                height: "30px",
             });
+            
         } else {
-            this.marker = new SimpleMarkerSymbol({
-                color: [0, 180, 40],
-                outline: {
-                    color: [255, 255, 255],
-                    width: 2,
-                },
-            });
+            this.pictureMarker = new PictureMarkerSymbol({
+                url: "../../../assets/green-pin.svg",
+                width: "26px",
+                height: "26px",
+            });            
         }
         const pointGraphic = new Graphic({
             geometry: this.point,
-            symbol: this.marker,
+            symbol: this.pictureMarker,
         });
         this.pointTemp.push(pointGraphic);
         this.mapView?.graphics.add(pointGraphic);
@@ -90,9 +78,9 @@ export class RouteMapComponent{
         })
         route.solve(routeUrl, routeParams).then((response) => {
             this.directionTemp = response.routeResults[0].directions.features
-            response.routeResults[0].directions.features.forEach((data) => {
+            response.routeResults[0].directions.features.forEach((data:any) => {
                 const pathToDestination = new Polyline({
-                    paths: (data.geometry as Polyline).paths
+                    paths: data.geometry.paths
                 })
                 const line = new SimpleLineSymbol({
                     color: "blue",
