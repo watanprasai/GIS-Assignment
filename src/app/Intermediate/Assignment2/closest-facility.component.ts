@@ -75,6 +75,7 @@ export class ClosestFacilityComponent implements OnInit{
         this.drawAllPath.forEach((path) => {
             this.mapView?.graphics.remove(path);
         })
+        this.drawAllPath = [];
         const mapPanel = document.getElementById("mapPanel");
         if (mapPanel) {
           mapPanel.style.cursor = "wait";
@@ -203,6 +204,7 @@ export class ClosestFacilityComponent implements OnInit{
       this.drawAllPath.forEach((path) => {
         this.mapView?.graphics.remove(path)
       })
+      this.drawAllPath = [];
       this.stateClosest = false;
     }
 
