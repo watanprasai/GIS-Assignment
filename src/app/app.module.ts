@@ -22,6 +22,7 @@ import { ClosestFacilityComponent } from './Intermediate/Assignment2/closest-fac
 import { RouteMapComponent } from './Intermediate/Assignment4/route-map.component';
 import { LayerListComponent } from './Intermediate/Assignment5/layer-list.component';
 import { SwipeMapComponent } from './Intermediate/Assignment6/swipe-map.component';
+import { SecureMapComponent } from './Intermediate/Assignment7/secure-map.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { SwipeMapComponent } from './Intermediate/Assignment6/swipe-map.componen
     ClosestFacilityComponent,
     RouteMapComponent,
     LayerListComponent,
-    SwipeMapComponent
+    SwipeMapComponent,
+    SecureMapComponent
   ],
   imports: [
     BrowserModule,

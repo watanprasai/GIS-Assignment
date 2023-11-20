@@ -16,6 +16,7 @@ import * as geometryEngine from "@arcgis/core/geometry/geometryEngine.js";
 import SimpleFillSymbol from '@arcgis/core/symbols/SimpleFillSymbol';
 import SpatialReference from "@arcgis/core/geometry/SpatialReference.js";
 import Polyline from "@arcgis/core/geometry/Polyline.js";
+import SimpleLineSymbol from "@arcgis/core/symbols/SimpleLineSymbol.js";
 
 @Component({
     selector:'closest-facility',
@@ -36,6 +37,7 @@ export class ClosestFacilityComponent implements OnInit{
     bufferGraphic!:Graphic;
     closestInfo!:any;
     drawPath!: Graphic;
+    drawAllPath:Graphic[] = [];
     stateClosest: boolean = false;
     ngOnInit() {
       const layer = new MapImageLayer({
@@ -70,6 +72,9 @@ export class ClosestFacilityComponent implements OnInit{
       this.mapView.graphics.add(this.pointGraphic);
 
       this.mapView.on('click', (event) => { 
+        this.drawAllPath.forEach((path) => {
+            this.mapView?.graphics.remove(path);
+        })
         const mapPanel = document.getElementById("mapPanel");
         if (mapPanel) {
           mapPanel.style.cursor = "wait";
@@ -116,8 +121,7 @@ export class ClosestFacilityComponent implements OnInit{
         query.returnGeometry = true;
         
         citiesLayer.queryFeatures(query).then((response:any) => {
-          // console.log(response);
-          response.features.forEach((res:any) => {
+          response.features.forEach((res:any,i:number) => {
             this.point = new Point({
               longitude:res.geometry.longitude, 
               latitude:res.geometry.latitude
@@ -160,6 +164,24 @@ export class ClosestFacilityComponent implements OnInit{
             console.log(res)
             this.closestInfo = res;
             this.stateClosest = true;
+            res.routes.features.forEach((path:any) => {
+              const pathToDestination = new Polyline({
+                paths: path.geometry.paths
+              })
+              const line = new SimpleLineSymbol({
+                color: "cyan",
+                width: "0.5px",
+                style: "solid",
+              });
+              const drawPath = new Graphic({
+                geometry: pathToDestination,
+                symbol: line
+              })
+              this.drawAllPath.push(drawPath);
+            })
+            this.drawAllPath.forEach((data) => {
+              this.mapView?.graphics.add(data);
+            })
             if (mapPanel) {
               mapPanel.style.cursor = "auto";
             }
@@ -177,6 +199,9 @@ export class ClosestFacilityComponent implements OnInit{
       this.mapView?.graphics.remove(this.bufferGraphic);
       this.placePoint.forEach((point) => {
         this.mapView?.graphics.remove(point)
+      })
+      this.drawAllPath.forEach((path) => {
+        this.mapView?.graphics.remove(path)
       })
       this.stateClosest = false;
     }

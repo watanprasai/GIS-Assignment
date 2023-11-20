@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild , Output, EventEmitter} from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import Map from '@arcgis/core/Map';
 import MapView from '@arcgis/core/views/MapView';
 import PictureMarkerSymbol from "@arcgis/core/symbols/PictureMarkerSymbol.js";

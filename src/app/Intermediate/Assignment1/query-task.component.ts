@@ -27,7 +27,6 @@ export class QueryTaskComponent implements OnInit{
     customPoint :CustomPoint = new CustomPoint
     messages!: Message[]
     stateOutline!: Graphic;
-    geoInfo!:any
     stateInfo!:any
     ngOnInit() {
       this.fetchData() 
@@ -111,14 +110,12 @@ export class QueryTaskComponent implements OnInit{
         symbol: this.marker,
         });
         this.mapView?.graphics.add(this.pointGraphic);
-        
-        console.log(data)
         if (mapPanel) {
             mapPanel.style.cursor = "auto"
         }
     }
 
-    async fetchData() {
+    fetchData() {
         const featureLayer = new FeatureLayer({
             url: 'https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/2'
         });
@@ -126,8 +123,10 @@ export class QueryTaskComponent implements OnInit{
         query.where = '1=1';
         query.outFields = ['*'];
         query.returnGeometry = true;
-        this.geoInfo = await featureLayer.queryFeatures(query)
-        this.stateInfo = this.geoInfo.features
+        featureLayer.queryFeatures(query).then((res) => {
+          this.stateInfo = res.features
+        })
+        
     }
 
     showMessage(detail: string): void {
@@ -135,34 +134,4 @@ export class QueryTaskComponent implements OnInit{
         setTimeout(() => this.messages = [], 5000);
     } 
 
-    handleLocate(event: CustomPoint) {
-      if (event.longitude && this.mapView && event.latitude) {
-        if (event.longitude <= -180 || event.longitude >= 180) {
-          this.showMessage('Longitude ไม่ควรเกิน -180 และ 180 องศา');
-          return
-        }
-        if (event.latitude <= -90 || event.latitude >= 90) {
-          this.showMessage('Latitude ไม่ควรเกิน -90 และ 90 องศา');
-          return
-        }
-        this.mapView?.graphics.removeAll()
-        const newCenter = new Point({
-            longitude: event.longitude,
-            latitude: event.latitude,
-        });
-        this.marker = new SimpleMarkerSymbol({
-            color: [226, 119, 40],
-            outline: {
-                color: [255, 255, 255],
-                width: 2,
-            },
-        });
-        this.pointGraphic = new Graphic({
-            geometry: newCenter,
-            symbol: this.marker,
-        });
-        this.mapView?.graphics.add(this.pointGraphic);
-        this.mapView?.goTo(newCenter);
-        }
-    }
 }
