@@ -22,7 +22,7 @@ import { ClosestFacilityComponent } from './Intermediate/Assignment2/closest-fac
 import { RouteMapComponent } from './Intermediate/Assignment4/route-map.component';
 import { LayerListComponent } from './Intermediate/Assignment5/layer-list.component';
 import { SwipeMapComponent } from './Intermediate/Assignment6/swipe-map.component';
-import { SecureMapComponent } from './Intermediate/Assignment7/secure-map.component';
+import { QuizComponent } from './Intermediate/PostTest/quiz.component'; 
 
 @NgModule({
   declarations: [
@@ -40,7 +40,7 @@ import { SecureMapComponent } from './Intermediate/Assignment7/secure-map.compon
     RouteMapComponent,
     LayerListComponent,
     SwipeMapComponent,
-    SecureMapComponent
+    QuizComponent
   ],
   imports: [
     BrowserModule,

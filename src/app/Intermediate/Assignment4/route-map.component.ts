@@ -56,7 +56,7 @@ export class RouteMapComponent implements OnInit{
                 url: "../../../assets/green-pin.svg",
                 width: "26px",
                 height: "26px",
-            });            
+            });
         }
         const pointGraphic = new Graphic({
             geometry: this.point,
@@ -64,7 +64,7 @@ export class RouteMapComponent implements OnInit{
         });
         this.pointTemp.push(pointGraphic);
         this.mapView?.graphics.add(pointGraphic);
-      } )
+      })
     }
 
     startRoute() {

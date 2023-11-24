@@ -1,0 +1,33 @@
+<div class="container">
+    <p-toast position="top-center"></p-toast>
+    <div #mapPanel style="height: 100%; width:100%;"></div>
+    <div class="right">
+        <div class="check-box">
+            <h1>Check</h1>
+            <div class="line">
+                <p>
+                    Lat:
+                </p>
+                <input type="text" [(ngModel)]="latitude">
+            </div>
+            <div class="line">
+                <p>
+                    Long:
+                </p>
+                <input type="text" [(ngModel)]="longitude">
+            </div>
+            <div class="button-line">
+                <button (click)="check()" class="button-check">
+                    Check
+                </button>
+                <button (click)="clear()" class="button-clear">
+                    Clear
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="popup" *ngIf="popupState">
+        <h3>In coverage area</h3>
+        <h3>Out of coverage area</h3>
+    </div>
+</div>

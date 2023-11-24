@@ -13,7 +13,7 @@ import { ClosestFacilityComponent } from './Intermediate/Assignment2/closest-fac
 import { RouteMapComponent } from './Intermediate/Assignment4/route-map.component';
 import { LayerListComponent } from './Intermediate/Assignment5/layer-list.component';
 import { SwipeMapComponent } from './Intermediate/Assignment6/swipe-map.component';
-import { SecureMapComponent } from './Intermediate/Assignment7/secure-map.component';
+import { QuizComponent } from './Intermediate/PostTest/quiz.component';
 
 const routes: Routes = [
   { path:'' , component: FirstComponent},
@@ -29,7 +29,7 @@ const routes: Routes = [
   { path:'intermediate/assignment4', component: RouteMapComponent},
   { path:'intermediate/assignment5', component: LayerListComponent},
   { path:'intermediate/assignment6', component: SwipeMapComponent},
-  { path:'intermediate/assignment7', component: SecureMapComponent}
+  { path:'quiz', component: QuizComponent}
 ];
 
 @NgModule({

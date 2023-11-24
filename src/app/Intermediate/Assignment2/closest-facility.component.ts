@@ -42,7 +42,7 @@ export class ClosestFacilityComponent implements OnInit{
     ngOnInit() {
       const layer = new MapImageLayer({
         url: 'https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/',
-        });
+      });
       this.map = new Map({
         basemap: 'topo-vector',
       });

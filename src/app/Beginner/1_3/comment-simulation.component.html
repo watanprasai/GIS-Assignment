@@ -9,7 +9,7 @@
             <textarea name="comment" rows="3" [(ngModel)]="comment"></textarea><br>
             <input type="submit" value="Submit" *ngIf="!editState" (click)="submit()" />
             <input type="submit" value="Edit" *ngIf="editState" (click)="update()" />
-        </form>     
+        </form>
     </div>
     <div class="comment-box">
         <h1>Comment</h1>
